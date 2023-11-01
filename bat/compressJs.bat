@@ -8,7 +8,7 @@
 :: * -m, ¨Cmangle [string]
 :: uglifyjs lazyLoad.js -m -o lazyLoad.min.js
 
-set JS_FOLDER="%CD%\..\"
+set JS_FOLDER="%CD%\..\dist\"
 chdir /d %JS_FOLDER%
 
 setlocal enabledelayedexpansion

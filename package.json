@@ -1,8 +1,8 @@
 {
   "name": "@dishanqian/h5-base",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Provide H5 basic constants and functions.",
-  "main": "index.js",
+  "main": "dist/h5_base.js",
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -24,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/anqisoft/h5_base/issues"
   },
-  "homepage": "https://github.com/anqisoft/h5_base#readme"
+  "homepage": "https://github.com/anqisoft/h5_base#readme",
+  "files": [
+    "src/*.ts",
+    "dist/*.js",
+    "types/*.d.ts"
+  ]
 }
