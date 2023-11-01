@@ -1,0 +1,7 @@
+npm init
+npm i -g
+npm link
+
+npm login
+npm publish
+npm publish --access public
