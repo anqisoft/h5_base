@@ -126,8 +126,6 @@ export type AnQiData = {
 };
 
 export function parsePageParamsFromUrl(url: string) {
-	(window as unknown as { anqiData: AnQiData }).anqiData =
-		(window as unknown as { anqiData: AnQiData }).anqiData || {};
 	const anqiData: AnQiData = (window as unknown as { anqiData: AnQiData }).anqiData;
 
 	url = url.replace('?', '&').toLowerCase();
