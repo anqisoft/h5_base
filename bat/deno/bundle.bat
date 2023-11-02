@@ -1,4 +1,4 @@
-@ECHO OFF
+::@ECHO OFF
 set pwd=%cd%\
 
 set deno_json_path=%cd%\..\..\deno.json

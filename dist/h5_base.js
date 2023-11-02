@@ -505,22 +505,3 @@ class SvgHelper {
         return '';
     }
 }
-export { CURRENT_URL as CURRENT_URL };
-export { HOME_URL as HOME_URL };
-export { SITE_ROOT as SITE_ROOT };
-export { SITE_IMAGE_PATH as SITE_IMAGE_PATH };
-export { SITE_JAVASCRIPT_PATH as SITE_JAVASCRIPT_PATH };
-export { SITE_CSS_PATH as SITE_CSS_PATH };
-export { LANG_PROPERTY as LANG_PROPERTY };
-export { MONTH_FULL_NAME_ARRAY as MONTH_FULL_NAME_ARRAY };
-export { MONTH_NAME_ARRAY as MONTH_NAME_ARRAY };
-export { setF1Content as setF1Content };
-export { LOCAL_STORAGE_KEY_OF_LANG as LOCAL_STORAGE_KEY_OF_LANG };
-export { LOCAL_STORAGE_KEY_OF_CURRENT_PAGE as LOCAL_STORAGE_KEY_OF_CURRENT_PAGE };
-export { isI18nable as isI18nable };
-export { querySelectorAllByI18n as querySelectorAllByI18n };
-export { querySelectorAllByI18nPlaceholder as querySelectorAllByI18nPlaceholder };
-export { getI18nInnerHTML as getI18nInnerHTML };
-export { getI18nInnerHTMLFromDate as getI18nInnerHTMLFromDate };
-export { SVG_NS as SVG_NS };
-export { SVG_XLINKNS as SVG_XLINKNS };

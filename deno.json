@@ -7,8 +7,8 @@
   "importMap": "import_map.json",
   "lint": {
     "files": {
-      "include": ["ts/"],
-      "exclude": ["ts/testdata/"]
+      "include": ["src/"],
+      "exclude": ["src/testdata/"]
     },
     "rules": {
       "tags": ["recommended"],
@@ -18,8 +18,8 @@
   },
   "fmt": {
     "files": {
-      "include": ["ts/"],
-      "exclude": ["ts/testdata/", "ts/js/", "ts/.vscode/"]
+      "include": ["src/"],
+      "exclude": ["src/testdata/", "src/js/", "src/.vscode/"]
     },
     "options": {
       "useTabs": true,
@@ -31,8 +31,8 @@
   },
   "test": {
     "files": {
-      "include": ["ts/"],
-      "exclude": ["ts/testdata/"]
+      "include": ["src/"],
+      "exclude": ["src/testdata/"]
     }
   }
 }

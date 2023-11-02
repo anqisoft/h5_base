@@ -1,4 +1,4 @@
 @ECHO OFF
-cd ..\..\ts
+cd ..\..\src
 deno lint
 pause

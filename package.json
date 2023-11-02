@@ -1,6 +1,6 @@
 {
   "name": "@dishanqian/h5-base",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Provide H5 basic constants and functions.",
   "main": "dist/h5_base.js",
   "directories": {

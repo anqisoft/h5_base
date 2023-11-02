@@ -1,5 +1,5 @@
 @ECHO OFF
-cd ..\..\ts
+cd ..\..\src
 deno fmt
 
 pause

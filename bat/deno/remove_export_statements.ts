@@ -8,7 +8,7 @@ async function main() {
 
   const DECODER = new TextDecoder("utf-8");
   const ORIGINAL_CONTENT = DECODER.decode(await Deno.readFile(FILE_FULL_NAME));
-  Deno.writeTextFileSync(FILE_FULL_NAME, ORIGINAL_CONTENT.replace(/\nexport \{[ a-zA-Z]+\};/g, ''));
+  Deno.writeTextFileSync(FILE_FULL_NAME, ORIGINAL_CONTENT.replace(/[\r\n]*export \{[ 0-9a-zA-Z\_]+\};/g, ''));
 }
 
 main();

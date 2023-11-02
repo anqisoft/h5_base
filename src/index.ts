@@ -65,11 +65,13 @@ export const getPageParameterByName = (
 ) => {
 	const REPLACED_CURRENT_URL = CURRENT_URL.replace('?', '&');
 	const SEARCH_STRING = `${name}=`;
-	return REPLACED_CURRENT_URL.indexOf(`&${SEARCH_STRING}`) === -1 ? defaultValue || '' : decodeURIComponent(
-		REPLACED_CURRENT_URL.split('&').slice(1).filter((keyValue: string) =>
-			keyValue.startsWith(SEARCH_STRING)
-		)[0].split('=')[1],
-	);
+	return REPLACED_CURRENT_URL.indexOf(`&${SEARCH_STRING}`) === -1
+		? defaultValue || ''
+		: decodeURIComponent(
+			REPLACED_CURRENT_URL.split('&').slice(1).filter((keyValue: string) =>
+				keyValue.startsWith(SEARCH_STRING)
+			)[0].split('=')[1],
+		);
 };
 
 /**
@@ -134,9 +136,10 @@ export function parsePageParamsFromUrl(url: string) {
 		const SEARCH_STRING = `${key}=`;
 		if (url.indexOf(SEARCH_STRING) === -1) return defaultValue;
 
-		return keyValueArray.filter((keyValue: string) => keyValue.startsWith(`&${SEARCH_STRING}`))[0].split(
-			'=',
-		)[1];
+		return keyValueArray.filter((keyValue: string) => keyValue.startsWith(`&${SEARCH_STRING}`))[0]
+			.split(
+				'=',
+			)[1];
 	}
 
 	const LANG_IN_URL = getValueByUrlParamNam('lang', 'en');
