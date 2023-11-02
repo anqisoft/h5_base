@@ -38,6 +38,21 @@ const MONTH_NAME_ARRAY = [
     'Dec'
 ];
 function parsePageParamsFromUrl(url) {
+    window.anqiData = window.anqiData || {
+        LANG: 'en',
+        THICKESS: '0.2',
+        A3: false,
+        LANDSCAPE: false,
+        PAGE_PADDING_TOP: 15,
+        PAGE_PADDING_LEFT: 10,
+        PAPER_WIDTH: 0,
+        PAPER_HEIGHT: 0,
+        PAGE_WIDTH: 0,
+        PAGE_HEIGHT: 0,
+        NO: 1,
+        MM_TO_PX_SCALE: 0,
+        PX_TO_MM_SCALE: 0
+    };
     const anqiData = window.anqiData;
     url = url.replace('?', '&').toLowerCase();
     const keyValueArray = url.split('&').slice(1);
