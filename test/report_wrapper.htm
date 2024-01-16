@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <meta
+      id="viewportMeta"
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover,minimal-ui"
+    />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style id="style"></style>
+  </head>
+  <body>
+    <main id="brickPageMain">
+      <div id="searchRegion"></div>
+      <div id="brickPageSubject" class="pageSubject">
+        <div id="brickPageSubjectText"></div>
+      </div>
+      <div id="brickPageSummary"></div>
+      <div id="brickPageMainContent">
+        <div id="brickPagePreviewRegion">
+          <div id="brickPageMainPreviewSubject" class="brickPageMainContentSubject"><en>Preview</en><zh_cn>预览</zh_cn><zh_tw>預覽</zh_tw></div>
+          <iframe id="brickPageIframe" src="report.htm" frameborder="0"></iframe>
+          <div id="brickPageToolbar">
+            <span class="brickPageToolbarItem" style="display:none;">
+              <img class="brickPageToolbarItemImage" src="./images/download.png" alt="./images/download.png">
+              <span class="brickPageToolbarItemText"><en>download</en><zh_cn>下载</zh_cn><zh_tw>下載</zh_tw></span>
+            </span>
+            <span class="brickPageToolbarItem">
+              <img class="brickPageToolbarItemImage" src="./images/print.png" alt="./images/print.png">
+              <span class="brickPageToolbarItemText"><en>print</en><zh_cn>打印</zh_cn><zh_tw>列印</zh_tw></span>
+            </span>
+            <span class="brickPageToolbarItem" style="display:none;">
+              <img class="brickPageToolbarItemImage" src="./images/share.png" alt="./images/share.png">
+              <span class="brickPageToolbarItemText"><en>share</en><zh_cn>分享</zh_cn><zh_tw>分享</zh_tw></span>
+            </span>
+            <span class="brickPageToolbarItem">
+              <img class="brickPageToolbarItemImage" src="./images/sponsor.png" alt="./images/sponsor.png">
+              <span class="brickPageToolbarItemText"><en>sponsor</en><zh_cn>赞助</zh_cn><zh_tw>贊助</zh_tw></span>
+            </span>
+          </div>
+        </div>
+        <div id="brickPageConfigRegion" data-report-id="9">
+          <div id="brickPageMainContentSubject" class="brickPageMainContentSubject"><en>Config</en><zh_cn>设置</zh_cn><zh_tw>設置</zh_tw></div>
+          <div id="brickPageConfigCoreWrap">
+            <div id="brickPageConfigCore" data-report-kind="unknown">
+              <div class="brickPageConfigCoreOptionRowWrap" id="brickPageBasePaperSizeOrDirectionWrap">
+                <strong><en>Paper</en><zh_cn>纸张</zh_cn><zh_tw>紙張</zh_tw></strong>
+                <label><en>Width:</en><zh_cn>宽：</zh_cn><zh_tw>寬：</zh_tw></label><input type="number" min="0" id="config_paper_Width">
+                <label><en>Height:</en><zh_cn>高：</zh_cn><zh_tw>高：</zh_tw></label><input type="number" min="0" id="config_paper_height">
+              </div>
+
+              <div class="brickPageConfigCoreOptionRowWrap justify-content-flex-end" id="brickPageBasePaperSizeOrDirectionWrap">
+                <!-- Landscape Portrait-->
+                <button type="button" id="button_set_paper_to_a3_landscape"><en>A3 Landscape</en><zh_cn>A3横向</zh_cn><zh_tw>A3橫向</zh_tw></button>
+                <button type="button" id="button_set_paper_to_a3_portrait"><en>A3 Portrait</en><zh_cn>A3纵向</zh_cn><zh_tw>A3縱向</zh_tw></button>
+
+                <button type="button" id="button_set_paper_to_a4_landscape"><en>A4 Landscape</en><zh_cn>A4横向</zh_cn><zh_tw>A4橫向</zh_tw></button>
+                <button type="button" id="button_set_paper_to_a4_portrait"><en>A4 Portrait</en><zh_cn>A4纵向</zh_cn><zh_tw>A4縱向</zh_tw></button>
+              </div>
+              <div class="brickPageConfigCoreOptionRowWrap" id="brickPageBasePaperMaginWrap">
+                <strong><en>Margin of page</en><zh_cn>页边距</zh_cn><zh_tw>頁邊距</zh_tw></strong>
+                <label><en>Top:</en><zh_cn>上：</zh_cn><zh_tw>上：</zh_tw></label><input type="number" min="0" id="config_margin_top">
+                <label><en>Bottom:</en><zh_cn>下：</zh_cn><zh_tw>下：</zh_tw></label><input type="number" min="0" id="config_margin_bottom">
+                <label><en>Left:</en><zh_cn>左：</zh_cn><zh_tw>左：</zh_tw></label><input type="number" min="0" id="config_margin_left">
+                <label><en>Right:</en><zh_cn>右：</zh_cn><zh_tw>右：</zh_tw></label><input type="number" min="0" id="config_margin_right">
+              </div>
+              <div id="brickPageItemUsableButtonsWrap">
+                <div class="brickPageConfigCoreOptionRowWrap" style="margin-bottom:1em;">
+                  <strong><en>4-sides</en><zh_cn>4面</zh_cn><zh_tw>4面</zh_tw></strong>
+                  <span style="display:inline-flex;"><button type="button"><en>Pinyin Tone</en><zh_cn>拼音声调</zh_cn><zh_tw>拼音聲調</zh_tw></button><button type="button"><en>1-4</en><zh_cn>1-4</zh_cn><zh_tw>1-4</zh_tw></button><button type="button"><en>Quad operator</en><zh_cn>四则运算符</zh_cn><zh_tw>四則運算子</zh_tw></button></span>
+                </div>
+                
+                <div class="brickPageConfigCoreOptionRowWrap" style="margin-bottom:1em;">
+                  <strong><en>6-sides</en><zh_cn>6面</zh_cn><zh_tw>6面</zh_tw></strong>
+                  <span style="display:inline-flex;"><button type="button"><en>1-6</en><zh_cn>1-6</zh_cn><zh_tw>1-6</zh_tw></button></span>
+                </div>
+                
+                <div class="brickPageConfigCoreOptionRowWrap" style="margin-bottom:1em;">
+                  <strong><en>8-sides</en><zh_cn>8面</zh_cn><zh_tw>8面</zh_tw></strong>
+                  <span style="display:inline-flex;"><button type="button"><en>1-8</en><zh_cn>1-8</zh_cn><zh_tw>1-8</zh_tw></button><button type="button"><en>Eight Diagrams</en><zh_cn>八卦</zh_cn><zh_tw>八卦</zh_tw></button><button type="button"><en>Eight winds</en><zh_cn>八风</zh_cn><zh_tw>八風</zh_tw></button></span>
+                </div>
+                
+                <div class="brickPageConfigCoreOptionRowWrap" style="margin-bottom:1em;">
+                  <strong><en>12-sides</en><zh_cn>12面</zh_cn><zh_tw>12面</zh_tw></strong>
+                  <span style="display:inline-flex;"><button type="button"><en>1-12</en><zh_cn>1-12</zh_cn><zh_tw>1-12</zh_tw></button><button type="button"><en>Terrestrial branch</en><zh_cn>地支</zh_cn><zh_tw>地支</zh_tw></button><button type="button"><en>Chinese zodiac 1</en><zh_cn>十二生肖</zh_cn><zh_tw>十二生肖</zh_tw></button><button type="button"><en>Chinese zodiac 2</en><zh_cn>生肖繁体</zh_cn><zh_tw>生肖繁體</zh_tw></button><button type="button"><en>English Months</en><zh_cn>英文月份</zh_cn><zh_tw>英文月份</zh_tw></button><button type="button"><en>Months</en><zh_cn>月份</zh_cn><zh_tw>月份</zh_tw></button><button type="button"><en>Month abbreviation</en><zh_cn>月份缩写</zh_cn><zh_tw>月份縮寫</zh_tw></button><button type="button"><en>Month (number)</en><zh_cn>月份（数字）</zh_cn><zh_tw>月份（數字）</zh_tw></button><button type="button"><en>Lunar month</en><zh_cn>农历月份</zh_cn><zh_tw>農曆月份</zh_tw></button></span>
+                </div>
+
+                <div class="brickPageConfigCoreOptionRowWrap" style="margin-bottom:1em;">
+                  <strong><en>20-sides</en><zh_cn>20面</zh_cn><zh_tw>20面</zh_tw></strong>
+                  <span style="display:inline-flex;"><button type="button"><en>1-20</en><zh_cn>1-20</zh_cn><zh_tw>1-20</zh_tw></button></span>
+                </div>
+
+                <div class="brickPageConfigCoreOptionRowWrap" style="margin-bottom:1em;">
+                  <strong><en>24-sides</en><zh_cn>24面</zh_cn><zh_tw>24面</zh_tw></strong>
+                  <span style="display:inline-flex;"><button type="button"><en>1-24</en><zh_cn>1-24</zh_cn><zh_tw>1-24</zh_tw></button><button type="button"><en>0-23</en><zh_cn>0-23</zh_cn><zh_tw>0-23</zh_tw></button><button type="button"><en>Initial Consonant</en><zh_cn>声母</zh_cn><zh_tw>聲母</zh_tw></button><button type="button"><en>Finals</en><zh_cn>韵母</zh_cn><zh_tw>韻母</zh_tw></button><button type="button"><en>Overall recognition</en><zh_cn>整体认读</zh_cn><zh_tw>整體認讀</zh_tw></button><button type="button"><en>Simple final</en><zh_cn>单韵母</zh_cn><zh_tw>單韻母</zh_tw></button><button type="button"><en>24 Solar Terms</en><zh_cn>二十四节气</zh_cn><zh_tw>二十四節氣</zh_tw></button><button type="button"><en>KK Vowels</en><zh_cn>KK元音</zh_cn><zh_tw>KK元音</zh_tw></button><button type="button"><en>KK Vowels</en><zh_cn>KK元音</zh_cn><zh_tw>KK元音</zh_tw></button><button type="button"><en>KK Consonants</en><zh_cn>KK辅音</zh_cn><zh_tw>KK辅音</zh_tw></button><button type="button"><en>KK Consonants</en><zh_cn>KK辅音</zh_cn><zh_tw>KK辅音</zh_tw></button></span>
+                </div>
+              </div>
+                  
+              <div id="brickPageItemTableWrap">
+                <table>
+                  <thead style="display: table-header-group;"><tr id="brickPageItemTableHeadTr"><td><en>Operations</en><zh_cn>操作</zh_cn><zh_tw>操作</zh_tw></td></tr></thead>
+                  <tbody id="brickPageItemTableBody">
+                  </tbody>
+                </table>
+              </div>
+          </div>
+                  
+          <div id="brickPageConfigCoreToolbar">
+              <span id="brickPageBuild" class="moreButton primary"><en>Build</en><zh_cn>生成</zh_cn><zh_tw>生成</zh_tw></span>
+              <span id="brickPageLoadDefaultConfig" class="moreButton primary"><en>Use Default</en><zh_cn>还原</zh_cn><zh_tw>還原</zh_tw></span>
+              <span id="brickPageLoadConfigFromLocal" class="moreButton primary"><en>Load</en><zh_cn>加载</zh_cn><zh_tw>加載</zh_tw></span>
+              <span id="brickPageSaveConfigToLocal" class="moreButton primary"><en>Save</en><zh_cn>保存</zh_cn><zh_tw>保存</zh_tw></span>
+        </div>
+        </div>
+        </div>
+        <div id="brickPageDownloadArea"></div>
+        <div id="brickPageShareArea" style="display: none;"><img></div>
+        <img id="brickPageSponsorImage" src="./images/sponsor.jpg" alt="./images/sponsor.jpg" style="display: none;">
+      </div>
+      <div id="brickPageFeedback"></div>
+    </main>
+    <script charset="utf-8" src="./js/h5_base.js"></script>
+    <script charset="utf-8" src="./js/report_wrapper.js"></script>
+  </body>
+</html>

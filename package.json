@@ -27,7 +27,10 @@
   "homepage": "https://github.com/anqisoft/h5_base#readme",
   "files": [
     "src/*.ts",
+    "src/report/*.ts",
     "dist/*.js",
+    "dist/report/*",
+    "dist/report/*/*",
     "types/*.d.ts"
   ]
 }

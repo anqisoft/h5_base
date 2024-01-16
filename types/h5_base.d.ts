@@ -1,4 +1,33 @@
 /**
+ * <en>language</en>
+ * <zh_cn>语言</zh_cn>
+ * <zh_tw>語言</zh_tw>
+ */
+export type Language = 'en' | 'zh_cn' | 'zh_tw';
+/**
+ * <en>array: language</en>
+ * <zh_cn>语言数组</zh_cn>
+ * <zh_tw>語言數組</zh_tw>
+ */
+export declare const LANG_ARRAY: Language[];
+/**
+ * <en>Internationalizable</en>
+ * <zh_cn>可国际化</zh_cn>
+ * <zh_tw>可國際化</zh_tw>
+ */
+export type I18nable = {
+    en: string;
+    zh_cn: string;
+    zh_tw: string;
+};
+export declare const CHANGE_LANG_BUTTON_TEXT_MAP: I18nable;
+/**
+ * <en>default language</en>
+ * <zh_cn>默认语言</zh_cn>
+ * <zh_tw>默認語言</zh_tw>
+ */
+export declare const DEFAULT_LANG = "en";
+/**
  * <en>Current URL</en>
  * <zh_cn>当前网址</zh_cn>
  * <zh_tw>當前網址</zh_tw>
@@ -57,10 +86,10 @@ export declare const getPageParameterByName: (name: string, defaultValue: string
  * <zh_cn>html属性：语言</zh_cn>
  * <zh_tw>html内容：語言</zh_tw>
  */
-export declare const LANG_PROPERTY = "edu-lang";
+export declare const LANG_PROPERTY = "data-lang";
 export declare const MONTH_FULL_NAME_ARRAY: string[];
 export declare const MONTH_NAME_ARRAY: string[];
-export type AnQiData = {
+export type AnQiH5PageData = {
     LANG: string;
     THICKESS: number;
     A3: boolean;
@@ -78,7 +107,7 @@ export type AnQiData = {
 export declare function parsePageParamsFromUrl(url: string): void;
 export declare function getPageCss(): string;
 export declare function setF1Content(content: string): void;
-export declare function getNumbersArray(min: number, max: number): any[];
+export declare function getNumbersArray(min: number, max: number): Array<string>;
 /**
  * <en>Local storage keyword: language, used to record the last selected language</en>
  * <zh_cn>本地存储关键字：语言，用于记录最后一次所选择的语言</zh_cn>
@@ -91,12 +120,6 @@ export declare const LOCAL_STORAGE_KEY_OF_LANG = "lang";
  * <zh_tw>本地存儲關鍵字：當前頁，用於記錄最後一次生成報表時所選擇的配寘</zh_tw>
  */
 export declare const LOCAL_STORAGE_KEY_OF_CURRENT_PAGE: string;
-/**
- * <en>language</en>
- * <zh_cn>语言</zh_cn>
- * <zh_tw>語言</zh_tw>
- */
-export type Language = 'en' | 'zh_cn' | 'zh_tw';
 /**
  * <en>Get the current language from localStorage</en>
  * <zh_cn>从localStorage获取当前语言</zh_cn>
@@ -150,17 +173,8 @@ export declare class DPIHelper {
     getMmToPxScale: () => number;
     getPxToMmScale: () => number;
 }
-/**
- * <en>Internationalizable</en>
- * <zh_cn>可国际化</zh_cn>
- * <zh_tw>可國際化</zh_tw>
- */
-export interface I18nable {
-    en: string;
-    zh_cn: string;
-    zh_tw: string;
-}
 export declare function isI18nable(object: I18nable | string | null | undefined): boolean;
+export declare function getHtmlFromI18nable(object: I18nable): string;
 /**
  * <en>Hide html elements by setting the style sheet display to none.</en>
  * <zh_cn>通过设置样式表display到none，来隐藏html元素</zh_cn>
@@ -518,3 +532,8 @@ export declare class SvgHelper {
     static appendOuterLine(svg: SVGElement, WIDTH: number, HEIGHT: number, OUTER_LINE_STYLE: string): void;
     static getTextStyleFontSizePatchCss(NUMBER: number, TEXT_STYLE: string): string;
 }
+export declare const convertDateToYYYYMMDD_hhmmss: (date: Date) => string;
+export declare function pushSameValueTimes<T>(array: Array<T>, value: T, times: number): void;
+export declare function repeatString(original: string, times: number): string;
+export declare function getArrayRepeatSameValue<T>(value: T, times: number): Array<T>;
+export declare const getI18nableWithSameContent: (value: string) => I18nable;

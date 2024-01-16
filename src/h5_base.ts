@@ -1,3 +1,67 @@
+/*
+ * Copyright (c) 2023 anqisoft@gmail.com
+ * h5_base.ts
+ *
+ * <en>
+ * Created on Sun Nov 05 2023 14:49:56
+ * Feature: Provides basic types, basic constants and basic functions of H5 pages.
+ * </en>
+ *
+ * <zh_cn>
+ * 创建：2023年11月5日 14:49:56
+ * 功能：提供H5页面基本类型、基础常量与基础函数。
+ * </zh_cn>
+ *
+ * <zh_tw>
+ * 創建：2023年11月5日 14:49:56
+ * 功能：提供H5頁面基本型別、基礎常數與基礎函數。
+ * </zh_tw>
+ */
+
+
+/**
+ * <en>language</en>
+ * <zh_cn>语言</zh_cn>
+ * <zh_tw>語言</zh_tw>
+ */
+export type Language = 'en' | 'zh_cn' | 'zh_tw';
+
+/**
+ * <en>array: language</en>
+ * <zh_cn>语言数组</zh_cn>
+ * <zh_tw>語言數組</zh_tw>
+ */
+export const LANG_ARRAY: Language[] = ['en', 'zh_cn', 'zh_tw'];
+
+/**
+ * <en>Internationalizable</en>
+ * <zh_cn>可国际化</zh_cn>
+ * <zh_tw>可國際化</zh_tw>
+ */
+export type I18nable = {
+	en: string;
+	zh_cn: string;
+	zh_tw: string;
+}
+
+/**
+ * <en>Dictionary: Change page language button text.</en>
+ * <zh_cn>字典：更改页面语言按钮文本。</zh_cn>
+ * <zh_tw>字典：更改頁面語言按鈕文字。</zh_tw>
+ */
+export const CHANGE_LANG_BUTTON_TEXT_MAP: I18nable = {
+	'en': 'EN',
+	'zh_cn': '简',
+	'zh_tw': '繁',
+};
+
+/**
+ * <en>default language</en>
+ * <zh_cn>默认语言</zh_cn>
+ * <zh_tw>默認語言</zh_tw>
+ */
+export const DEFAULT_LANG = 'en';
+
 /**
  * <en>Current URL</en>
  * <zh_cn>当前网址</zh_cn>
@@ -64,12 +128,11 @@ export const getPageParameterByName = (
 	defaultValue: string | null,
 ) => {
 	const REPLACED_CURRENT_URL = CURRENT_URL.replace('?', '&');
-	const SEARCH_STRING = `${name}=`;
-	return REPLACED_CURRENT_URL.indexOf(`&${SEARCH_STRING}`) === -1
+	return REPLACED_CURRENT_URL.indexOf(`&${name}=`) === -1
 		? defaultValue || ''
 		: decodeURIComponent(
 			REPLACED_CURRENT_URL.split('&').slice(1).filter((keyValue: string) =>
-				keyValue.startsWith(SEARCH_STRING)
+				keyValue.startsWith(${name}=)
 			)[0].split('=')[1],
 		);
 };
@@ -79,17 +142,33 @@ export const getPageParameterByName = (
  * <zh_cn>html属性：语言</zh_cn>
  * <zh_tw>html内容：語言</zh_tw>
  */
-export const LANG_PROPERTY = 'edu-lang';
+export const LANG_PROPERTY = 'data-lang';
 
+/**
+ * <en>Array: The full English name of the month.</en>
+ * <zh_cn>数组：英文月份完整名。</zh_cn>
+ * <zh_tw>陣列：英文月份完整名。</zh_tw>
+ */
 export const MONTH_FULL_NAME_ARRAY = [
-	'Monday',
-	'Tuseday',
-	'Wednesday',
-	'Thursday',
-	'Friday',
-	'Saturday',
-	'Sunday',
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
 ];
+
+/**
+ * <en>Array: English month abbreviation.</en>
+ * <zh_cn>数组：英文月份简写。</zh_cn>
+ * <zh_tw>陣列：英文月份簡寫。</zh_tw>
+ */
 export const MONTH_NAME_ARRAY = [
 	'Jan',
 	'Feb',
@@ -99,63 +178,159 @@ export const MONTH_NAME_ARRAY = [
 	'Jun',
 	'Jul',
 	'Aug',
-	'Spt',
+	'Sept',
 	'Oct',
 	'Nov',
 	'Dec',
 ];
 
-export type AnQiData = {
+/*
+ * <en>Type: H5 page data</en>
+ * <zh_cn>类型：H5页面数据</zh_cn>
+ * <zh_tw>類型：H5頁面數據</zh_tw>
+ */
+export type AnQiH5PageData = {
+	/*
+	 * <en>Page language, used to control the content displayed by multi-language items.</en>
+	 * <zh_cn>页面语言，用于控制多语言项所显示内容。</zh_cn>
+	 * <zh_tw>頁面語言，用於控制多語言項目所顯示內容。</zh_tw>
+	 */
 	LANG: string;
+	/*
+	 * <en>The paper is thick, leaving gaps for folding.</en>
+	 * <zh_cn>纸厚，为折叠而预留空隙。</zh_cn>
+	 * <zh_tw>紙張厚，為折疊而預留空隙。</zh_tw>
+	 */
 	THICKESS: number;
-
+	/*
+	 * <en>Whether it is A3 paper.</en>
+	 * <zh_cn>是否A3纸。</zh_cn>
+	 * <zh_tw>是否A3紙。</zh_tw>
+	 */
 	A3: boolean;
+	/*
+	 * <en>Whether the paper is landscape orientation.</en>
+	 * <zh_cn>是否横向纸张。</zh_cn>
+	 * <zh_tw>是否橫向紙張。</zh_tw>
+	 */
 	LANDSCAPE: boolean;
-
+	/*
+	 * <en>The top margin of the page.</en>
+	 * <zh_cn>页面上边距。</zh_cn>
+	 * <zh_tw>頁面上邊距。</zh_tw>
+	 */
 	PAGE_PADDING_TOP: number;
+	/*
+	 * <en>Page bottom margin.</en>
+	 * <zh_cn>页面下边距。</zh_cn>
+	 * <zh_tw>頁面下邊距。</zh_tw>
+	 */
+	PAGE_PADDING_BOTTOM: number;
+	/*
+	 * <en>Page left margin.</en>
+	 * <zh_cn>页面左边距。</zh_cn>
+	 * <zh_tw>頁面左邊距。</zh_tw>
+	 */
 	PAGE_PADDING_LEFT: number;
-
+	/*
+	 * <en>Right margin of page.</en>
+	 * <zh_cn>页面右边距。</zh_cn>
+	 * <zh_tw>頁面右邊距。</zh_tw>
+	 */
+	PAGE_PADDING_RIGHT: number;
+	/*
+	 * <en>Paper width.</en>
+	 * <zh_cn>纸张宽度。</zh_cn>
+	 * <zh_tw>紙張寬度。</zh_tw>
+	 */
 	PAPER_WIDTH: number;
+	/*
+	 * <en>Paper height.</en>
+	 * <zh_cn>纸张高度。</zh_cn>
+	 * <zh_tw>紙張高度。</zh_tw>
+	 */
 	PAPER_HEIGHT: number;
-
+	/*
+	 * <en>Page width.</en>
+	 * <zh_cn>页面宽度。</zh_cn>
+	 * <zh_tw>頁面寬度。</zh_tw>
+	 */
 	PAGE_WIDTH: number;
+	/*
+	 * <en>Page height.</en>
+	 * <zh_cn>页面高度。</zh_cn>
+	 * <zh_tw>頁面高度。</zh_tw>
+	 */
 	PAGE_HEIGHT: number;
-
+	/*
+	 * <en>serial number.</en>
+	 * <zh_cn>序号。</zh_cn>
+	 * <zh_tw>序號。</zh_tw>
+	 */
 	NO: number;
-
+	/*
+	 * <en>Scale: millimeters to pixels.</en>
+	 * <zh_cn>比例：毫米转像素。</zh_cn>
+	 * <zh_tw>比例：毫米轉像素。</zh_tw>
+	 */
 	MM_TO_PX_SCALE: number;
+	/*
+	 * <en>Scale: pixels to millimeters.</en>
+	 * <zh_cn>比例：像素转毫米。</zh_cn>
+	 * <zh_tw>比例：像素轉毫米。</zh_tw>
+	 */
 	PX_TO_MM_SCALE: number;
 };
 
+/**
+ * <en>Parse page parameters from URL</en>
+ * <zh_cn>从网址解析页面参数</zh_cn>
+ * <zh_tw>從網址解析頁面參數</zh_tw>
+ * @param url <en>URL</en><zh_cn>网址</zh_cn><zh_tw>網址</zh_tw>
+ */
 export function parsePageParamsFromUrl(url: string) {
-	(window as unknown as { anqiData: AnQiData }).anqiData = (window as unknown as { anqiData: AnQiData }).anqiData || {
-		LANG: 'en',
-		THICKESS: '0.2',
-	
-		A3: false,
-		LANDSCAPE: false,
-	
-		PAGE_PADDING_TOP: 15,
-		PAGE_PADDING_LEFT: 10,
-	
-		PAPER_WIDTH: 0,
-		PAPER_HEIGHT: 0,
-	
-		PAGE_WIDTH: 0,
-		PAGE_HEIGHT: 0,
-	
-		NO: 1,
-	
-		MM_TO_PX_SCALE: 0,
-		PX_TO_MM_SCALE: 0,
-	};
-	const anqiData: AnQiData = (window as unknown as { anqiData: AnQiData }).anqiData;
+	(window as unknown as { anqiH5PageData: AnQiH5PageData }).anqiH5PageData =
+		(window as unknown as { anqiH5PageData: AnQiH5PageData }).anqiH5PageData || {
+			LANG: DEFAULT_LANG,
+			THICKESS: 0.2,
+
+			A3: false,
+			LANDSCAPE: false,
+
+			PAGE_PADDING_TOP: 15,
+			PAGE_PADDING_BOTTOM: 15,
+			PAGE_PADDING_LEFT: 10,
+			PAGE_PADDING_RIGHT: 10,
+
+			PAPER_WIDTH: 0,
+			PAPER_HEIGHT: 0,
+
+			PAGE_WIDTH: 0,
+			PAGE_HEIGHT: 0,
+
+			NO: 1,
+
+			MM_TO_PX_SCALE: 0,
+			PX_TO_MM_SCALE: 0,
+		};
+	const { anqiH5PageData } = window as unknown as { anqiH5PageData: AnQiH5PageData };
 
 	url = url.replace('?', '&').toLowerCase();
 	const keyValueArray = url.split('&').slice(1);
-	function getValueByUrlParamNam(key: string, defaultValue: string) {
+	/**
+	 * <en>According to the page parameter name, obtain the corresponding parameter value (if not, return the default value)</en>
+	 * <zh_cn>根据页面参数名，获取相应参数值（无则返回默认值）</zh_cn>
+	 * <zh_tw>根據頁面參數名，取得對應參數值（無則傳回預設值）</zh_tw>
+	 * @param key <en>Page parameter name</en><zh_cn>页面参数名</zh_cn><zh_tw>頁面參數名</zh_tw>
+	 * @param defaultValue <en>Default value</en><zh_cn>默认值</zh_cn><zh_tw>預設值</zh_tw>
+	 * @returns 
+	 * <en>If there is this parameter in the URL, the corresponding value will be returned; otherwise, the default value will be returned.</en>
+	 * <zh_cn>如网址中有此参数，则返回相应值；否则返回默认值</zh_cn>
+	 * <zh_tw>如網址中有此參數，則傳回對應值；否則傳回預設值</zh_tw>
+	 */
+	function getValueByUrlParamName(key: string, defaultValue: string): string {
 		const SEARCH_STRING = `${key}=`;
-		if (url.indexOf(SEARCH_STRING) === -1) return defaultValue;
+		if (url.indexOf(SEARCH_STRING) === -1) { return defaultValue; }
 
 		return keyValueArray.filter((keyValue: string) => keyValue.startsWith(`&${SEARCH_STRING}`))[0]
 			.split(
@@ -163,55 +338,55 @@ export function parsePageParamsFromUrl(url: string) {
 			)[1];
 	}
 
-	const LANG_IN_URL = getValueByUrlParamNam('lang', 'en');
-	const LANG = ['en', 'zh_cn', 'zh_tw'].indexOf(LANG_IN_URL) === -1 ? 'en' : LANG_IN_URL;
-	const THICKESS = Math.max(0, parseFloat(getValueByUrlParamNam('thickess', '0.2')));
+	const LANG_IN_URL = getValueByUrlParamName('lang', DEFAULT_LANG);
+	const LANG = (LANG_ARRAY as string[]).indexOf(LANG_IN_URL) === -1 ? DEFAULT_LANG : LANG_IN_URL;
+	const THICKESS = Math.max(0, parseFloat(getValueByUrlParamName('thickess', '0.2')));
 
-	const A3 = getValueByUrlParamNam('a3', 'true') === 'true';
-	const LANDSCAPE = getValueByUrlParamNam('landscape', 'false') === 'true';
+	const A3 = getValueByUrlParamName('a3', 'true') === 'true';
+	const LANDSCAPE = getValueByUrlParamName('landscape', 'false') === 'true';
 
 	// 4 => 3.5 => 15
-	const PAGE_PADDING_TOP = Math.max(0, parseFloat(getValueByUrlParamNam('top', '15')));
+	const PAGE_PADDING_TOP = Math.max(0, parseFloat(getValueByUrlParamName('top', '15')));
 	// 3 => 3.5 => 10
-	const PAGE_PADDING_LEFT = Math.max(0, parseFloat(getValueByUrlParamNam('left', '10')));
+	const PAGE_PADDING_LEFT = Math.max(0, parseFloat(getValueByUrlParamName('left', '10')));
 
-	const NO = Math.max(0, parseInt(getValueByUrlParamNam('no', '1')));
+	const NO = Math.max(0, parseInt(getValueByUrlParamName('no', '1')));
 
 	// const PAPER_WIDTH = A3 ? (LANDSCAPE ? 420 : 297) : (LANDSCAPE ? 297 : 210);
 	// const PAPER_HEIGHT = A3 ? (LANDSCAPE ? 297 : 420) : (LANDSCAPE ? 210 : 297);
-	const PAPER_WIDTH = parseFloat(getValueByUrlParamNam('width', '0')) ||
+	const PAPER_WIDTH = parseFloat(getValueByUrlParamName('width', '0')) ||
 		(A3 ? (LANDSCAPE ? 420 : 297) : (LANDSCAPE ? 297 : 210));
-	const PAPER_HEIGHT = parseFloat(getValueByUrlParamNam('height', '0')) ||
+	const PAPER_HEIGHT = parseFloat(getValueByUrlParamName('height', '0')) ||
 		(A3 ? (LANDSCAPE ? 297 : 420) : (LANDSCAPE ? 210 : 297));
 
 	const PAGE_WIDTH = PAPER_WIDTH - PAGE_PADDING_LEFT * 2;
 	const PAGE_HEIGHT = PAPER_HEIGHT - PAGE_PADDING_TOP * 2;
 
-	anqiData.LANG = LANG;
-	anqiData.THICKESS = THICKESS;
+	anqiH5PageData.LANG = LANG;
+	anqiH5PageData.THICKESS = THICKESS;
 
-	anqiData.A3 = A3;
-	anqiData.LANDSCAPE = LANDSCAPE;
+	anqiH5PageData.A3 = A3;
+	anqiH5PageData.LANDSCAPE = LANDSCAPE;
 
-	anqiData.PAGE_PADDING_TOP = PAGE_PADDING_TOP;
-	anqiData.PAGE_PADDING_LEFT = PAGE_PADDING_LEFT;
+	anqiH5PageData.PAGE_PADDING_TOP = PAGE_PADDING_TOP;
+	anqiH5PageData.PAGE_PADDING_LEFT = PAGE_PADDING_LEFT;
 
-	anqiData.PAPER_WIDTH = PAPER_WIDTH;
-	anqiData.PAPER_HEIGHT = PAPER_HEIGHT;
+	anqiH5PageData.PAPER_WIDTH = PAPER_WIDTH;
+	anqiH5PageData.PAPER_HEIGHT = PAPER_HEIGHT;
 
-	anqiData.PAGE_WIDTH = PAGE_WIDTH;
-	anqiData.PAGE_HEIGHT = PAGE_HEIGHT;
+	anqiH5PageData.PAGE_WIDTH = PAGE_WIDTH;
+	anqiH5PageData.PAGE_HEIGHT = PAGE_HEIGHT;
 
-	anqiData.NO = NO;
+	anqiH5PageData.NO = NO;
 
 	const DPI_HELPER = new DPIHelper();
-	anqiData.MM_TO_PX_SCALE = DPI_HELPER.getMmToPxScale();
-	anqiData.PX_TO_MM_SCALE = DPI_HELPER.getPxToMmScale();
+	anqiH5PageData.MM_TO_PX_SCALE = DPI_HELPER.getMmToPxScale();
+	anqiH5PageData.PX_TO_MM_SCALE = DPI_HELPER.getPxToMmScale();
 }
 
 export function getPageCss() {
 	const { A3, LANDSCAPE, PAGE_PADDING_TOP, PAGE_PADDING_LEFT, PAGE_WIDTH, PAGE_HEIGHT } =
-		(window as unknown as { anqiData: AnQiData }).anqiData;
+		(window as unknown as { anqiH5PageData: AnQiH5PageData }).anqiH5PageData;
 
 	return `\@media print\{\@page\{size:${A3 ? 'A3' : 'A4'} ${
 		LANDSCAPE ? 'landscape' : 'portrait'
@@ -241,9 +416,12 @@ export function setF1Content(content: string) {
 	};
 }
 
-export function getNumbersArray(min: number, max: number) {
-	const array = [];
-	for (let i = min; i <= max; ++i) array.push(i.toString());
+export function getNumbersArray(min: number, max: number): Array<string> {
+	const array: Array<string> = [];
+	for (let i = min; i <= max; ++i) {
+		array.push(i.toString());
+	}
+
 	return array;
 }
 
@@ -265,13 +443,6 @@ export const LOCAL_STORAGE_KEY_OF_CURRENT_PAGE = CURRENT_URL.includes('?')
 	: CURRENT_URL;
 
 /**
- * <en>language</en>
- * <zh_cn>语言</zh_cn>
- * <zh_tw>語言</zh_tw>
- */
-export type Language = 'en' | 'zh_cn' | 'zh_tw';
-
-/**
  * <en>Notification: Change Language</en>
  * <zh_cn>通知：更改语言</zh_cn>
  * <zh_tw>通知：更改語言</zh_tw>
@@ -284,7 +455,7 @@ const CHANGE_LANG_NOTIFY_ARRAY = [] as Array<(lang: Language) => void>;
  * <zh_tw>從localStorage獲取當前語言</zh_tw>
  */
 export const getCurrentLang = () =>
-	(localStorage.getItem(LOCAL_STORAGE_KEY_OF_LANG) || 'zh_cn') as Language;
+	(localStorage.getItem(LOCAL_STORAGE_KEY_OF_LANG) || DEFAULT_LANG) as Language;
 
 /**
  * <en>Set Current Language</en>
@@ -384,23 +555,15 @@ export class DPIHelper {
 	public getPxToMmScale = () => this.pxToMmScale;
 }
 
-/////////////////////////////////////// Copy from dom.ts
-/**
- * <en>Internationalizable</en>
- * <zh_cn>可国际化</zh_cn>
- * <zh_tw>可國際化</zh_tw>
- */
-export interface I18nable {
-	en: string;
-	zh_cn: string;
-	zh_tw: string;
-}
-
 export function isI18nable(object: I18nable | string | null | undefined): boolean {
 	return typeof object !== 'undefined' && object !== null && typeof object !== 'string' &&
 		(typeof object.en === 'string' &&
 			typeof object.zh_cn === 'string' &&
 			typeof object.zh_tw === 'string');
+}
+
+export function getHtmlFromI18nable(object: I18nable): string {
+	return `<en>${object.en}</en><zh_cn>${object.zh_cn}</zh_cn><zh_tw>${object.zh_tw}</zh_tw>`;
 }
 
 /**
@@ -855,7 +1018,7 @@ export function appendSvgAndG(
 	const { left, right, top, bottom, degree } = options;
 
 	// A3, LANDSCAPE, PAGE_PADDING_TOP, PAGE_PADDING_LEFT, MM_TO_PX_SCALE, PX_TO_MM_SCALE
-	const { PAGE_WIDTH, PAGE_HEIGHT } = (window as unknown as { anqiData: AnQiData }).anqiData;
+	const { PAGE_WIDTH, PAGE_HEIGHT } = (window as unknown as { anqiH5PageData: AnQiH5PageData }).anqiH5PageData;
 
 	const x = 'undefined' !== typeof left ? left : PAGE_WIDTH - width - right;
 	const y = 'undefined' !== typeof top ? top : PAGE_HEIGHT - height - bottom;
@@ -961,7 +1124,7 @@ export function appendSvgAndG(
 
 export function createTopSvgElement() {
 	// A3, LANDSCAPE, PAGE_PADDING_TOP, PAGE_PADDING_LEFT, MM_TO_PX_SCALE, PX_TO_MM_SCALE
-	const { PAGE_WIDTH, PAGE_HEIGHT } = (window as unknown as { anqiData: AnQiData }).anqiData;
+	const { PAGE_WIDTH, PAGE_HEIGHT } = (window as unknown as { anqiH5PageData: AnQiH5PageData }).anqiH5PageData;
 
 	const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
@@ -1340,3 +1503,45 @@ export class SvgHelper {
 		return '';
 	}
 }
+
+//////////////////////////////////// from utils.ts
+export const convertDateToYYYYMMDD_hhmmss = (date: Date) => {
+	return `${date.getFullYear()}${'0'.concat((date.getMonth() + 1).toString()).substr(-2)}${
+		'0'.concat((date.getDate()).toString()).substr(-2)
+	}`.concat(
+		`_${'0'.concat((date.getHours()).toString()).substr(-2)}${
+			'0'.concat((date.getMinutes()).toString()).substr(-2)
+		}${'0'.concat((date.getSeconds()).toString()).substr(-2)}`,
+	);
+};
+
+export function pushSameValueTimes<T>(
+	array: Array<T>,
+	value: T,
+	times: number,
+): void {
+	for (let i = 0; i < times; ++i) {
+		array.push(value);
+	}
+}
+
+export function repeatString(original: string, times: number): string {
+	const array: Array<string> = [];
+	for (let i = 0; i <= times; ++i) {
+		array.push(original);
+	}
+
+	return array.join();
+}
+
+export function getArrayRepeatSameValue<T>(value: T, times: number): Array<T> {
+	const array: Array<T> = [];
+	for (let i = 0; i < times; ++i) {
+		array.push(value);
+	}
+	return array;
+}
+
+export const getI18nableWithSameContent = (value: string): I18nable => {
+	return { en: value, zh_cn: value, zh_tw: value };
+};
